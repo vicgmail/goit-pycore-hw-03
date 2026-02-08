@@ -4,7 +4,7 @@ import re
 print("This program calculates the number of days from today to a given date.");
 
 # Input date format: string "YYYY-MM-DD" or datetime object
-def get_days_from_today(date: datetime | str) -> int:
+def get_days_from_today(date: datetime | str) -> int | None:
     today = datetime.now().date()
     print(f"Today's date: {today.strftime('%Y-%m-%d')}")
     try:
