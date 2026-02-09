@@ -2,9 +2,11 @@ from datetime import datetime, timedelta
 import re
 import json
 
-print("This program choose users for greeting.");
 
 DEFAULT_GREETING_PERIOD_DAYS = 7
+
+print("This program choose users for greeting.")
+
 
 # This function was described in TASK 1. 
 # We need to rebuild it a little to return positive value in date in the future for confortable work
@@ -22,6 +24,7 @@ def get_days_from_today(date: datetime | str) -> int | None:
                 print("Invalid date format. Please enter the date in YYYY-MM-DD or YYYY.MM.DD format")
                 return None
         delta = date - today
+        
         return delta.days
     except ValueError as e:
         print(f"Invalid date format: {date} could not be used as date.")
@@ -36,8 +39,8 @@ def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
         upcomming_birthday = str(current_year) + user.get("birthday")[4:]
         upcoming_birthday_days = get_days_from_today(upcomming_birthday)
         if upcoming_birthday_days < 0:
-          upcomming_birthday = str(current_year + 1) + user.get("birthday")[4:]
-          upcoming_birthday_days = get_days_from_today(upcomming_birthday)
+            upcomming_birthday = str(current_year + 1) + user.get("birthday")[4:]
+            upcoming_birthday_days = get_days_from_today(upcomming_birthday)
 
         if 0 <= upcoming_birthday_days < DEFAULT_GREETING_PERIOD_DAYS:
             selebrateDay = datetime.strptime(upcomming_birthday, "%Y.%m.%d").date()
@@ -55,6 +58,7 @@ def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
 
     result.sort(key=lambda x: x["congratulation_date"])
     return result
+
 
 users = [{
     "name": "Alice",
@@ -99,7 +103,5 @@ users = [{
     "name": "Nina",
     "birthday": "1992.01.15"
 }]
-    
 greetings = get_upcoming_birthdays(users)
-
 print(f"Upcoming birthdays:\n{json.dumps(greetings, indent=2, default=str)}")

@@ -1,7 +1,7 @@
 import re
 
-print("This program normalizes phone numbers")
 
+print("This program normalizes phone numbers")
 country_codes = {
     "US": "+1",
     "UK": "+44",
@@ -10,10 +10,9 @@ country_codes = {
     "FR": "+33"
 }
 
-def normalize_phone(phone: str, country_code: str = "+38") -> str | None:
-    
-    digits = re.sub(r"\D+", "", phone)
 
+def normalize_phone(phone: str, country_code: str = "+38") -> str | None:    
+    digits = re.sub(r"\D+", "", phone)
     if len(digits) == 10:
         return f"{country_code}{digits}"
     elif len(digits) == 11 and country_code == country_codes["UA"] and digits[0] == "8":
@@ -23,6 +22,7 @@ def normalize_phone(phone: str, country_code: str = "+38") -> str | None:
     else:
         print(f"Invalid phone number format: {phone}")
         return None
+
 
 raw_numbers = [
     "067\\t123 4567",
@@ -37,6 +37,5 @@ raw_numbers = [
     "10 111 22 11   ",
     "asd",
 ]
-
 sanitized_numbers = [result for num in raw_numbers if (result := normalize_phone(num)) is not None]
 print("Normalized numbers:", sanitized_numbers)

@@ -1,7 +1,9 @@
 from datetime import datetime
 import re
 
-print("This program calculates the number of days from today to a given date.");
+
+print("This program calculates the number of days from today to a given date.")
+
 
 # Input date format: string "YYYY-MM-DD" or datetime object
 def get_days_from_today(date: datetime | str) -> int | None:
@@ -20,8 +22,8 @@ def get_days_from_today(date: datetime | str) -> int | None:
         print(f"Invalid date format: {date} could not be used as date.")
         return None 
 
-date_input = input("Enter a date (YYYY-MM-DD): ")
-    
+
+date_input = input("Enter a date (YYYY-MM-DD): ")    
 days = get_days_from_today(date_input)
 if days is not None:
-  print(f"Result: {int(days)} days from today to {date_input}")
+    print(f"Result: {int(days)} days from today to {date_input}")
