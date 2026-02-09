@@ -5,13 +5,13 @@ import json
 
 DEFAULT_GREETING_PERIOD_DAYS = 7
 
-print("This program choose users for greeting.")
 
-
-# This function was described in TASK 1. 
-# We need to rebuild it a little to return positive value in date in the future for confortable work
-# We need to rebuilt it to organise code as module for import in TASK 4
-# This is only a copy and will be delete from task 4 in the future
+"""
+This function was described in TASK 1. 
+We need to rebuild it a little to return positive value in date in the future for confortable work
+We need to rebuilt it to organise code as module for import in TASK 4
+This is only a copy and will be delete from task 4 in the future
+"""
 def get_days_from_today(date: datetime | str) -> int | None:
     today = datetime.now().date()
     try:
@@ -60,48 +60,54 @@ def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
     return result
 
 
-users = [{
-    "name": "Alice",
-    "birthday": "1990.02.08"
-}, {
-    "name": "Bob",
-    "birthday": "1985.02.09"
-}, {
-    "name": "Charlie",
-    "birthday": "2000.02.11"
-}, {
-    "name": "David",
-    "birthday": "1995.02.10"
-}, {
-    "name": "Eve",
-    "birthday": "1992.02.14"
-}, {
-    "name": "Frank",
-    "birthday": "1988.02.15"
-}, {
-    "name": "Grace",
-    "birthday": "1993.09.18"
-}, {
-    "name": "Heidi",
-    "birthday": "1991.02.28"
-}, {
-    "name": "Ivan",
-    "birthday": "1987.06.12"
-}, {
-    "name": "Judy",
-    "birthday": "1994.04.22"
-}, {
-    "name": "Karl",
-    "birthday": "1989.08.05"
-}, {
-    "name": "Leo",
-    "birthday": "1996.10.30"
-}, {
-    "name": "Mallory",
-    "birthday": "1990.12.01"
-}, {
-    "name": "Nina",
-    "birthday": "1992.01.15"
-}]
-greetings = get_upcoming_birthdays(users)
-print(f"Upcoming birthdays:\n{json.dumps(greetings, indent=2, default=str)}")
+#Choose users for greeting.
+def main():
+    users = [{
+        "name": "Alice",
+        "birthday": "1990.02.08"
+    }, {
+        "name": "Bob",
+        "birthday": "1985.02.09"
+    }, {
+        "name": "Charlie",
+        "birthday": "2000.02.11"
+    }, {
+        "name": "David",
+        "birthday": "1995.02.10"
+    }, {
+        "name": "Eve",
+        "birthday": "1992.02.14"
+    }, {
+        "name": "Frank",
+        "birthday": "1988.02.15"
+    }, {
+        "name": "Grace",
+        "birthday": "1993.09.18"
+    }, {
+        "name": "Heidi",
+        "birthday": "1991.02.28"
+    }, {
+        "name": "Ivan",
+        "birthday": "1987.06.12"
+    }, {
+        "name": "Judy",
+        "birthday": "1994.04.22"
+    }, {
+        "name": "Karl",
+        "birthday": "1989.08.05"
+    }, {
+        "name": "Leo",
+        "birthday": "1996.10.30"
+    }, {
+        "name": "Mallory",
+        "birthday": "1990.12.01"
+    }, {
+        "name": "Nina",
+        "birthday": "1992.01.15"
+    }]
+    greetings = get_upcoming_birthdays(users)
+    print(f"Upcoming birthdays:\n{json.dumps(greetings, indent=2, default=str)}")
+
+
+if __name__ == "__main__":
+    main()
